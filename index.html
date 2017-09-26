@@ -1,16 +1,43 @@
 
 <head>
-
+    
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
     <title>sureshbabu's blog</title>
+    <meta name="description" content="ctrl + C &amp; ctrl + V">
+
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" type="text/css" href="assets/built/screen.css?v=bf73d7aa0a">
+    <link rel="shortcut icon" href="favicon.ico">
 
-    <meta name="description" content="Thoughts, stories and ideas.">
+    <link rel="stylesheet" type="text/css" href="assets/css/screen.css?v=cfb45b8e40">
+    <link rel="stylesheet" type="text/css" href="assets/css/ghostly.css?v=cfb45b8e40">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic%7COpen+Sans:700,400">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/styles/default.min.css">
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <style>  
+        pre {
+            word-wrap: normal;
+            -moz-hyphens: none;
+            -ms-hyphens: none;
+            -webkit-hyphens: none;
+            hyphens: none;
+            font-size: 0.8em;
+            line-height: 1.4em;
+        }
+        pre code, pre tt {
+            white-space: pre;
+            background: transparent !important;
+        }
+    </style> 
+
+    <link rel="stylesheet" href="assets/fonts/font-awesome/css/font-awesome.min.css" name="description" content="ctrl + C &amp; ctrl + V">
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <link rel="canonical" href="https://dotnetdude.github.io/">
     <meta name="referrer" content="no-referrer-when-downgrade">
@@ -18,16 +45,16 @@
     <meta property="og:site_name" content="sureshbabu's blog">
     <meta property="og:type" content="website">
     <meta property="og:title" content="sureshbabu's blog">
-    <meta property="og:description" content="Thoughts, stories and ideas.">
+    <meta property="og:description" content="ctrl + C &amp; ctrl + V">
     <meta property="og:url" content="https://dotnetdude.github.io/">
-    <meta property="og:image" content="https://casper.ghost.org/v1.0.0/images/blog-cover.jpg">
+    <meta property="og:image" content="https://dotnetdude.github.io/content/images/2017/09/IMG_3765.JPG">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="sureshbabu's blog">
-    <meta name="twitter:description" content="Thoughts, stories and ideas.">
+    <meta name="twitter:description" content="ctrl + C &amp; ctrl + V">
     <meta name="twitter:url" content="https://dotnetdude.github.io/">
-    <meta name="twitter:image" content="https://casper.ghost.org/v1.0.0/images/blog-cover.jpg">
-    <meta property="og:image:width" content="250">
-    <meta property="og:image:height" content="250">
+    <meta name="twitter:image" content="https://dotnetdude.github.io/content/images/2017/09/IMG_3765.JPG">
+    <meta property="og:image:width" content="4898">
+    <meta property="og:image:height" content="3265">
     
     <script type="application/ld+json">
 {
@@ -36,29 +63,24 @@
     "publisher": {
         "@type": "Organization",
         "name": "sureshbabu&#x27;s blog",
-        "logo": {
-            "@type": "ImageObject",
-            "url": "https://casper.ghost.org/v1.0.0/images/ghost-logo.svg",
-            "width": 60,
-            "height": 60
-        }
+        "logo": "https://casper.ghost.org/v1.0.0/images/ghost-logo.svg"
     },
     "url": "https://dotnetdude.github.io/",
     "image": {
         "@type": "ImageObject",
-        "url": "https://casper.ghost.org/v1.0.0/images/blog-cover.jpg",
-        "width": 250,
-        "height": 250
+        "url": "https://dotnetdude.github.io/content/images/2017/09/IMG_3765.JPG",
+        "width": 4898,
+        "height": 3265
     },
     "mainEntityOfPage": {
         "@type": "WebPage",
         "@id": "https://dotnetdude.github.io/"
     },
-    "description": "Thoughts, stories and ideas."
+    "description": "ctrl + C &amp; ctrl + V"
 }
     </script>
 
-    <script type="text/javascript" src="public/ghost-sdk.min.js?v=bf73d7aa0a"></script>
+    <script type="text/javascript" src="public/ghost-sdk.min.js?v=cfb45b8e40"></script>
 <script type="text/javascript">
 ghost.init({
 	clientId: "ghost-frontend",
@@ -67,91 +89,98 @@ ghost.init({
 </script>
     <meta name="generator" content="Ghost 1.8">
     <link rel="alternate" type="application/rss+xml" title="sureshbabu's blog" href="https://dotnetdude.github.io/rss/">
+    </head>
+    <body class="home-template nav-closed">
 
-</head>
-<body class="home-template">
+    <div class="nav">
+    <div class="main-nav">
+        <h3 class="nav-title">Menu</h3>
+        <a href="index.html#" class="nav-close">
+            <span class="hidden">Close</span>
+        </a>
+        <ul>
+                <li class="nav-home nav-current" role="presentation"><a href="https://dotnetdude.github.io/">Home</a></li>
+        </ul>
+    </div>
+    <ul class="social-menu">
+        <li class="social-icon hidden" id="social-telegram">
+            <a href="index.html"><i class="fa fa-telegram"></i></a>
+            <script> if (typeof telegram_channel !== 'undefined') { $('#social-telegram').removeClass('hidden'); $('#social-telegram a').attr('href', 'https://t.me/' + telegram_channel); } </script>
+        </li>
+        <li class="social-icon hidden" id="social-github">
+            <a href="index.html"><i class="fa fa-github"></i></a>
+            <script> if (typeof github_user !== 'undefined') { $('#social-github').removeClass('hidden'); $('#social-github a').attr('href', 'https://github.com/' + github_user); } </script>
+        </li>
+        <li class="social-icon hidden" id="social-linkedin">
+            <a href="index.html"><i class="fa fa-linkedin-square"></i></a>
+            <script> if (typeof linkedin_url !== 'undefined') { $('#social-linkedin').removeClass('hidden'); $('#social-linkedin a').attr('href', linkedin_url); } </script>
+        </li>
+    </ul>
+    <div class="subscribe-menu">
+            <a class="subscribe-button icon-feed" href="https://dotnetdude.github.io/rss/">Subscribe</a>
+    </div>
+</div>
+<span class="nav-cover"></span>
+
 
     <div class="site-wrapper">
 
         
-<header class="site-header outer " style="background-image: url(https://casper.ghost.org/v1.0.0/images/blog-cover.jpg)">
-    <div class="inner">
-        <div class="site-header-content">
-            <h1 class="site-title">
-                    <img class="site-logo" src="https://casper.ghost.org/v1.0.0/images/ghost-logo.svg" alt="sureshbabu's blog">
-            </h1>
-            <h2 class="site-description">Thoughts, stories and ideas.</h2>
+<header class="main-header " style="background-image: url(content/images/2017/09/IMG_3765.JPG)">
+    <nav class="main-nav overlay clearfix">
+        <a class="blog-logo" href="https://dotnetdude.github.io"><img src="https://casper.ghost.org/v1.0.0/images/ghost-logo.svg" alt="sureshbabu's blog"></a>
+            <a class="menu-button icon-menu" href="index.html#"><span class="word">Menu</span></a>
+    </nav>
+    <div class="vertical">
+        <div class="main-header-content inner">
+            <h1 class="page-title">sureshbabu's blog</h1>
+            <h2 class="page-description">ctrl + C &amp; ctrl + V</h2>
         </div>
-        <nav class="site-nav">
-    <div class="site-nav-left">
-            <ul class="nav">
-    <li class="nav-home nav-current" role="presentation"><a href="https://dotnetdude.github.io/">Home</a></li>
-</ul>
-    </div>
-    <div class="site-nav-right">
-        <div class="social-links">
-        </div>
-            <a class="rss-button" href="http://cloud.feedly.com/#subscription/feed/https://dotnetdude.github.io/rss/" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24"><circle cx="6.18" cy="17.82" r="2.18"></circle><path d="M4 4.44v2.83c7.03 0 12.73 5.7 12.73 12.73h2.83c0-8.59-6.97-15.56-15.56-15.56zm0 5.66v2.83c3.9 0 7.07 3.17 7.07 7.07h2.83c0-5.47-4.43-9.9-9.9-9.9z"></path></svg>
-</a>
-    </div>
-</nav>
     </div>
 </header>
 
-<main id="site-main" class="site-main outer" role="main">
-    <div class="inner">
+<main id="content" class="content" role="main">
 
-        <div class="post-feed">
+    <div class="extra-pagination inner">
+    <nav class="pagination" role="navigation">
+    <span class="page-number">Page 1 of 1</span>
+</nav>
 
-                <article class="post-card post no-image">
-    <div class="post-card-content">
-        <a class="post-card-content-link" href="welcome-to-my-blog/">
-            <header class="post-card-header">
-                <h2 class="post-card-title">welcome to my blog</h2>
-            </header>
-            <section class="post-card-excerpt">
-                <p>welcome to my blog</p>
-            </section>
-        </a>
-        <footer class="post-card-meta">
-                <img class="author-profile-image" src="http://www.gravatar.com/avatar/ee985e9636bd8cbc4926a2b3f678ac0d?s=250&amp;d=mm&amp;r=x" alt="suresh babu">
-            <span class="post-card-author"><a href="author/suresh/">suresh babu</a></span>
-        </footer>
-    </div>
+</div>
+
+<article class="post">
+    <header class="post-header">
+        <h2 class="post-title"><a href="welcome-to-my-blog/">welcome to my blog</a></h2>
+    </header>
+    <section class="post-excerpt">
+            <p>welcome to my blog <a class="read-more" href="welcome-to-my-blog/">»</a></p>
+    </section>
+    <footer class="post-meta">
+        
+        <a href="author/suresh/">suresh babu</a>
+        
+        <time class="post-date" datetime="2017-09-26">26 September 2017</time>
+    </footer>
 </article>
 
-        </div>
+<nav class="pagination" role="navigation">
+    <span class="page-number">Page 1 of 1</span>
+</nav>
 
-    </div>
+
 </main>
 
 
-        <footer class="site-footer outer">
-            <div class="site-footer-content inner">
-                <section class="copyright"><a href="https://dotnetdude.github.io">sureshbabu's blog</a> © 2017</section>
-                <nav class="site-footer-nav">
-                    <a href="https://dotnetdude.github.io">Latest Posts</a>
-                    
-                    
-                    <a href="https://ghost.org" target="_blank">Ghost</a>
-                </nav>
-            </div>
+        <footer class="site-footer clearfix">
+            <section class="copyright"><a href="https://dotnetdude.github.io">sureshbabu's blog</a> © 2017</section>
+            <section class="poweredby">Proudly published with <a href="https://ghost.org">Ghost</a></section>
         </footer>
 
     </div>
-
-
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous">
-    </script>
-    <script type="text/javascript" src="assets/js/jquery.fitvids.js?v=bf73d7aa0a"></script>
-
-    <script>
-        var maxPages = parseInt('1');
-    </script>
-    <script src="assets/js/infinitescroll.js?v=bf73d7aa0a"></script>
-
     
-
     
+    <script type="text/javascript" src="assets/js/jquery.fitvids.js?v=cfb45b8e40"></script>
+    <script type="text/javascript" src="assets/js/index.js?v=cfb45b8e40"></script>
+    <script type="text/javascript" src="assets/js/ghostly.js?v=cfb45b8e40"></script>
 
 </body>

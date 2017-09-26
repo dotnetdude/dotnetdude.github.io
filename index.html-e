@@ -4,16 +4,16 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <title>suresh babu - sureshbabu's blog</title>
-    <meta name="description" content="">
+    <title>sureshbabu's blog</title>
+    <meta name="description" content="ctrl + C &amp; ctrl + V">
 
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="shortcut icon" href="favicon.ico">
 
-    <link rel="stylesheet" type="text/css" href="../../assets/css/screen.css?v=cfb45b8e40">
-    <link rel="stylesheet" type="text/css" href="../../assets/css/ghostly.css?v=cfb45b8e40">
+    <link rel="stylesheet" type="text/css" href="assets/css/screen.css?v=cfb45b8e40">
+    <link rel="stylesheet" type="text/css" href="assets/css/ghostly.css?v=cfb45b8e40">
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic%7COpen+Sans:700,400">
     <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
 
@@ -37,34 +37,55 @@
         }
     </style> 
 
-    <link rel="stylesheet" href="http://ghost:2368/author/suresh/assets/fonts/font-awesome/css/font-awesome.min.css" type="image/x-icon">
-    <link rel="canonical" href="https://dotnetdude.github.io/author/suresh/">
+    <link rel="stylesheet" href="assets/fonts/font-awesome/css/font-awesome.min.css" name="description" content="ctrl + C &amp; ctrl + V">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="canonical" href="https://dotnetdude.github.io/">
     <meta name="referrer" content="no-referrer-when-downgrade">
     
     <meta property="og:site_name" content="sureshbabu's blog">
-    <meta property="og:type" content="profile">
-    <meta property="og:title" content="suresh babu - sureshbabu's blog">
-    <meta property="og:url" content="https://dotnetdude.github.io/author/suresh/">
-    <meta property="article:modified_time" content="2017-09-26T20:25:26.000Z">
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="suresh babu - sureshbabu's blog">
-    <meta name="twitter:url" content="https://dotnetdude.github.io/author/suresh/">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="sureshbabu's blog">
+    <meta property="og:description" content="ctrl + C &amp; ctrl + V">
+    <meta property="og:url" content="https://dotnetdude.github.io/">
+    <meta property="og:image" content="https://casper.ghost.org/v1.0.0/images/blog-cover.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="sureshbabu's blog">
+    <meta name="twitter:description" content="ctrl + C &amp; ctrl + V">
+    <meta name="twitter:url" content="https://dotnetdude.github.io/">
+    <meta name="twitter:image" content="https://casper.ghost.org/v1.0.0/images/blog-cover.jpg">
+    <meta property="og:image:width" content="250">
+    <meta property="og:image:height" content="250">
     
     <script type="application/ld+json">
 {
     "@context": "https://schema.org",
-    "@type": "Person",
-    "sameAs": [],
-    "name": "suresh babu",
-    "url": "https://dotnetdude.github.io/author/suresh/",
+    "@type": "Website",
+    "publisher": {
+        "@type": "Organization",
+        "name": "sureshbabu&#x27;s blog",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://casper.ghost.org/v1.0.0/images/ghost-logo.svg",
+            "width": 60,
+            "height": 60
+        }
+    },
+    "url": "https://dotnetdude.github.io/",
+    "image": {
+        "@type": "ImageObject",
+        "url": "https://casper.ghost.org/v1.0.0/images/blog-cover.jpg",
+        "width": 250,
+        "height": 250
+    },
     "mainEntityOfPage": {
         "@type": "WebPage",
         "@id": "https://dotnetdude.github.io/"
-    }
+    },
+    "description": "ctrl + C &amp; ctrl + V"
 }
     </script>
 
-    <script type="text/javascript" src="../../public/ghost-sdk.min.js?v=cfb45b8e40"></script>
+    <script type="text/javascript" src="public/ghost-sdk.min.js?v=cfb45b8e40"></script>
 <script type="text/javascript">
 ghost.init({
 	clientId: "ghost-frontend",
@@ -74,7 +95,7 @@ ghost.init({
     <meta name="generator" content="Ghost 1.8">
     <link rel="alternate" type="application/rss+xml" title="sureshbabu's blog" href="https://dotnetdude.github.io/rss/">
     </head>
-    <body class="author-template author-suresh nav-closed">
+    <body class="home-template nav-closed">
 
     <div class="nav">
     <div class="main-nav">
@@ -83,7 +104,7 @@ ghost.init({
             <span class="hidden">Close</span>
         </a>
         <ul>
-                <li class="nav-home" role="presentation"><a href="https://dotnetdude.github.io/">Home</a></li>
+                <li class="nav-home nav-current" role="presentation"><a href="https://dotnetdude.github.io/">Home</a></li>
         </ul>
     </div>
     <ul class="social-menu">
@@ -110,27 +131,20 @@ ghost.init({
     <div class="site-wrapper">
 
         
-
-    <header class="main-header author-head no-cover">
-        <nav class="main-nav overlay clearfix">
-            <a class="blog-logo" href="https://dotnetdude.github.io"><img src="https://casper.ghost.org/v1.0.0/images/ghost-logo.svg" alt="sureshbabu's blog"></a>
-                <a class="menu-button icon-menu" href="index.html#"><span class="word">Menu</span></a>
-        </nav>
-    </header>
-
-    <section class="author-profile inner">
-        <figure class="author-image">
-            <div class="img" style="background-image: url(http://www.gravatar.com/avatar/ee985e9636bd8cbc4926a2b3f678ac0d?s&amp;)"><span class="hidden">suresh babu's Picture</span></div>
-        </figure>
-        <h1 class="author-title">suresh babu</h1>
-        <div class="author-meta">
-            
-            
-            <span class="author-stats"><i class="icon-stats"></i> 1 post</span>
+<header class="main-header " style="background-image: url(https://casper.ghost.org/v1.0.0/images/blog-cover.jpg)">
+    <nav class="main-nav overlay clearfix">
+        <a class="blog-logo" href="https://dotnetdude.github.io"><img src="https://casper.ghost.org/v1.0.0/images/ghost-logo.svg" alt="sureshbabu's blog"></a>
+            <a class="menu-button icon-menu" href="index.html#"><span class="word">Menu</span></a>
+    </nav>
+    <div class="vertical">
+        <div class="main-header-content inner">
+            <h1 class="page-title">sureshbabu's blog</h1>
+            <h2 class="page-description">ctrl + C &amp; ctrl + V</h2>
         </div>
-    </section>
+    </div>
+</header>
 
-<main class="content" role="main">
+<main id="content" class="content" role="main">
 
     <div class="extra-pagination inner">
     <nav class="pagination" role="navigation">
@@ -141,14 +155,14 @@ ghost.init({
 
 <article class="post">
     <header class="post-header">
-        <h2 class="post-title"><a href="../../welcome-to-my-blog/">welcome to my blog</a></h2>
+        <h2 class="post-title"><a href="welcome-to-my-blog/">welcome to my blog</a></h2>
     </header>
     <section class="post-excerpt">
-            <p>welcome to my blog <a class="read-more" href="../../welcome-to-my-blog/">»</a></p>
+            <p>welcome to my blog <a class="read-more" href="welcome-to-my-blog/">»</a></p>
     </section>
     <footer class="post-meta">
         
-        <a href="index.html">suresh babu</a>
+        <a href="author/suresh/">suresh babu</a>
         
         <time class="post-date" datetime="2017-09-26">26 September 2017</time>
     </footer>
@@ -170,8 +184,8 @@ ghost.init({
     </div>
     
     
-    <script type="text/javascript" src="../../assets/js/jquery.fitvids.js?v=cfb45b8e40"></script>
-    <script type="text/javascript" src="../../assets/js/index.js?v=cfb45b8e40"></script>
-    <script type="text/javascript" src="../../assets/js/ghostly.js?v=cfb45b8e40"></script>
+    <script type="text/javascript" src="assets/js/jquery.fitvids.js?v=cfb45b8e40"></script>
+    <script type="text/javascript" src="assets/js/index.js?v=cfb45b8e40"></script>
+    <script type="text/javascript" src="assets/js/ghostly.js?v=cfb45b8e40"></script>
 
 </body>

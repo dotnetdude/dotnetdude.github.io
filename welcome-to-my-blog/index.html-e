@@ -63,7 +63,12 @@
     "publisher": {
         "@type": "Organization",
         "name": "sureshbabu&#x27;s blog",
-        "logo": "https://casper.ghost.org/v1.0.0/images/ghost-logo.svg"
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://casper.ghost.org/v1.0.0/images/ghost-logo.svg",
+            "width": 60,
+            "height": 60
+        }
     },
     "author": {
         "@type": "Person",
@@ -71,8 +76,8 @@
         "image": {
             "@type": "ImageObject",
             "url": "//www.gravatar.com/avatar/ee985e9636bd8cbc4926a2b3f678ac0d?s=250&d=mm&r=x",
-            "width": 4898,
-            "height": 3265
+            "width": 250,
+            "height": 250
         },
         "url": "https://dotnetdude.github.io/author/suresh/",
         "sameAs": []
