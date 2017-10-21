@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <title>welcome to my blog</title>
+    <title>How to run openfaas in azure using docker machine and Azure CLI?</title>
     <meta name="description" content="">
 
     <meta name="HandheldFriendly" content="True">
@@ -38,21 +38,21 @@
     </style> 
 
     <link rel="stylesheet" href="../assets/fonts/font-awesome/css/font-awesome.min.css" type="image/x-icon">
-    <link rel="canonical" href="http://dotnetdude.github.io/welcome-to-my-blog/">
+    <link rel="canonical" href="http://dotnetdude.github.io/how-to-run-openfaas-in-azure/">
     <meta name="referrer" content="no-referrer-when-downgrade">
-    <link rel="amphtml" href="http://dotnetdude.github.io/welcome-to-my-blog/amp/">
+    <link rel="amphtml" href="http://dotnetdude.github.io/how-to-run-openfaas-in-azure/amp/">
     
     <meta property="og:site_name" content="sureshbabu's blog">
     <meta property="og:type" content="article">
-    <meta property="og:title" content="welcome to my blog">
-    <meta property="og:description" content="welcome to my blog">
-    <meta property="og:url" content="http://dotnetdude.github.io/welcome-to-my-blog/">
-    <meta property="article:published_time" content="2017-09-26T19:59:21.000Z">
-    <meta property="article:modified_time" content="2017-09-26T20:00:47.000Z">
+    <meta property="og:title" content="How to run openfaas in azure using docker machine and Azure CLI?">
+    <meta property="og:description" content="openfaas is a Serverless Framework for Docker and Kubernetes. In this guide we will be using the docker-machine tool to provision a number of Docker Swarm nodes in azure then we'll connect them together and deploy OpenFaaS. Before you get started - sign up to Azure here to get free">
+    <meta property="og:url" content="http://dotnetdude.github.io/how-to-run-openfaas-in-azure/">
+    <meta property="article:published_time" content="2017-10-21T16:33:25.000Z">
+    <meta property="article:modified_time" content="2017-10-21T19:34:01.000Z">
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="welcome to my blog">
-    <meta name="twitter:description" content="welcome to my blog">
-    <meta name="twitter:url" content="http://dotnetdude.github.io/welcome-to-my-blog/">
+    <meta name="twitter:title" content="How to run openfaas in azure using docker machine and Azure CLI?">
+    <meta name="twitter:description" content="openfaas is a Serverless Framework for Docker and Kubernetes. In this guide we will be using the docker-machine tool to provision a number of Docker Swarm nodes in azure then we'll connect them together and deploy OpenFaaS. Before you get started - sign up to Azure here to get free">
+    <meta name="twitter:url" content="http://dotnetdude.github.io/how-to-run-openfaas-in-azure/">
     <meta name="twitter:label1" content="Written by">
     <meta name="twitter:data1" content="suresh babu">
     <meta name="twitter:site" content="@suresh2">
@@ -78,11 +78,11 @@
         "url": "http://dotnetdude.github.io/author/suresh/",
         "sameAs": []
     },
-    "headline": "welcome to my blog",
-    "url": "http://dotnetdude.github.io/welcome-to-my-blog/",
-    "datePublished": "2017-09-26T19:59:21.000Z",
-    "dateModified": "2017-09-26T20:00:47.000Z",
-    "description": "welcome to my blog",
+    "headline": "How to run openfaas in azure using docker machine and Azure CLI?",
+    "url": "http://dotnetdude.github.io/how-to-run-openfaas-in-azure/",
+    "datePublished": "2017-10-21T16:33:25.000Z",
+    "dateModified": "2017-10-21T19:34:01.000Z",
+    "description": "openfaas is a Serverless Framework for Docker and Kubernetes. In this guide we will be using the docker-machine tool to provision a number of Docker Swarm nodes in azure then we&#x27;ll connect them together and deploy OpenFaaS. Before you get started - sign up to Azure here to get free",
     "mainEntityOfPage": {
         "@type": "WebPage",
         "@id": "http://dotnetdude.github.io/"
@@ -159,14 +159,99 @@ ghost.init({
 <main class="content" role="main">
     <article class="post">
         <header class="post-header">
-            <h1 class="post-title">welcome to my blog</h1>
+            <h1 class="post-title">How to run openfaas in azure using docker machine and Azure CLI?</h1>
             <section class="post-meta">
-                <time class="post-date" datetime="2017-09-26">26 September 2017</time> 
+                <time class="post-date" datetime="2017-10-21">21 October 2017</time> 
             </section>
         </header>
 
         <section class="post-content">
-            <div class="kg-card-markdown"><p>welcome to my blog</p>
+            <div class="kg-card-markdown"><p><a href="https://github.com/openfaas/faas">openfaas</a> is a Serverless Framework for Docker and Kubernetes. In this guide we will be using the <code>docker-machine</code> tool to provision a number of Docker Swarm nodes in azure then we'll connect them together and deploy OpenFaaS. Before you get started - sign up to <a href="https://azure.microsoft.com/en-gb/free/">Azure here to get free credits</a>. Once you've signed up come back to the tutorial.</p>
+<h2 id="installazurecliandgettheazuresubscriptionid">Install Azure CLI and get the azure subscription ID</h2>
+<p>First, Install <a href="https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest">Azure CLI</a> and obtain your Azure subscription ID with <a href="https://docs.microsoft.com/en-us/cli/azure/account?view=azure-cli-latest#az_account_show">az account show</a> as follows:</p>
+<pre><code class="language-azurecli">az login
+sub=$(az account show --query "id" -o tsv)
+</code></pre>
+<h2 id="installdockermachine">Install Docker Machine</h2>
+<p>Type in <code>docker-machine</code> to see if you already have the tool installed this is normally bundled with Docker for Mac/Windows. If not then you can download <a href="https://docs.docker.com/machine/install-machine/">Docker Machine here</a>.</p>
+<h2 id="createdockernodes">Create Docker Nodes</h2>
+<p>Use Docker Machine to create Docker hosts or nodes. On Azure your hosts or VMs (Virtual Machines)  will run a full version of Linux. Note: you'll be able to connect to any of your VMs with <code>ssh</code> later on.</p>
+<p>The example below creates 3 vms in the north europe zone, if you want to deploy only one vm change <code>"1 2 3"</code> to <code>"1"</code>.</p>
+<p>This process will take a few minutes as VMS are created and Docker installed.</p>
+<pre><code>for i in 1 2 3; do
+    docker-machine create \
+        --driver azure \
+        --azure-ssh-user azureuser \
+        --azure-location=northeurope \
+        --azure-subscription-id $sub \
+        --azure-resource-group openfaas \
+        --azure-open-port 2377 \
+        --azure-open-port 7946/* \
+        --azure-open-port 4789/udp \
+        node-$i;
+done
+</code></pre>
+<p>List the newly created Docker nodes.</p>
+<pre><code>$ docker-machine ls
+
+NAME     ACTIVE   DRIVER   STATE     URL                        SWARM   DOCKER        ERRORS
+node-1   -        azure    Running   tcp://40.113.93.183:2376           v17.10.0-ce   
+node-2   -        azure    Running   tcp://13.74.156.226:2376           v17.10.0-ce   
+node-3   -        azure    Running   tcp://13.74.254.30:2376            v17.10.0-ce   
+
+</code></pre>
+<p>Refer to the <a href="https://docs.docker.com/machine/drivers/azure/#options">documentation</a> for more detailed information on the azure options for docker-machine.</p>
+<h1 id="createyourdockerswarm">Create your Docker Swarm</h1>
+<p>A Docker Swarm can contain as little as a single master node and begins by running the <code>docker swarm init</code> command. It's important if you have more than one node that you specify an <code>--advertise-addr</code> value.</p>
+<p>Intialize Docker Swarm on <code>node-1</code>.</p>
+<pre><code>$ docker-machine ssh node-1 -- sudo docker swarm init --advertise-addr $(docker-machine ip node-1)
+</code></pre>
+<blockquote>
+<p>If you opted to deploy a single node, then skip to the next section.</p>
+</blockquote>
+<p>When deploying more than a single Docker host take a note of the command to add a worker to the Swarm. This output contains your <em>join token</em>.</p>
+<blockquote>
+<p>If you lose it you can get a new one any time with the command: <code>docker swarm join-token worker</code> or <code>manager</code>.</p>
+</blockquote>
+<pre><code>Swarm initialized: current node (vtq9rjklmjs9gzrhyfykcpzsx) is now a manager.
+
+To add a worker to this swarm, run the following command:
+
+    docker swarm join --token SWMTKN-1-5lnsbx94doxdrd5t1yaj6hfodc3hj72x43tpfiweb0g2ythat2-6i2kom6a9m2ckr44fiu2dtt9a 40.113.93.183:2377
+
+To add a manager to this swarm, run 'docker swarm join-token manager' and follow the instructions.
+</code></pre>
+<p>Add <code>node-2</code> to the Swarm, using the <code>docker swarm join..</code> command returned when initializing the master.</p>
+<pre><code>$ docker-machine ssh node-2 -- sudo docker swarm join --token SWMTKN-1-5lnsbx94doxdrd5t1yaj6hfodc3hj72x43tpfiweb0g2ythat2-6i2kom6a9m2ckr44fiu2dtt9a 40.113.93.183:2377;
+</code></pre>
+<p>Repeat for <code>node-3</code>.</p>
+<pre><code>$ docker-machine ssh node-3 -- sudo docker swarm join --token SWMTKN-1-5lnsbx94doxdrd5t1yaj6hfodc3hj72x43tpfiweb0g2ythat2-6i2kom6a9m2ckr44fiu2dtt9a 40.113.93.183:2377;
+</code></pre>
+<h2 id="configuredockerclitouseremoteswarm">Configure Docker CLI to use remote Swarm</h2>
+<p>Run this command each time you open a new shell, this tells Docker where your remote Swarm is.</p>
+<pre><code>eval $(docker-machine env node-1)
+</code></pre>
+<h2 id="deploytheopenfaasstack">Deploy the OpenFaaS Stack</h2>
+<p>This command clones the OpenFaaS Github repository then checkouts out a stable release before deploying a Docker stack. Docker Swarm will automatically distribute your functions and OpenFaaS services across the cluster.</p>
+<pre><code>$ git clone https://github.com/alexellis/faas &amp;&amp; \
+  cd faas &amp;&amp; \
+  git checkout 0.6.5 &amp;&amp; \
+  ./deploy_stack.sh
+</code></pre>
+<h2 id="testtheui">Test the UI</h2>
+<p>Within a few seconds (or minutes if on a poor WiFi connection) the API gateway and sample functions will be deployed to the Swarm cluster running on Azure.</p>
+<p>Access the Gateway UI via the IP address returned by <code>docker-machine ip node-1</code> (you can also access via <code>node-2</code> and <code>node-3</code>): open port 8080/9090 in node-1 Azure using CLI or Portal.</p>
+<pre><code>$ echo http://$(docker-machine ip node-1):8080
+</code></pre>
+<p>Prometheus metrics can be viewed on port 9090 on a master. Fetch the IP like this:</p>
+<pre><code>$ echo http://$(docker-machine ip node-1):9090
+</code></pre>
+<h2 id="deletingazurevms">Deleting AZURE VMs</h2>
+<p>You can use <code>docker-machine</code> to delete any created vms if are finished with your OpenFaaS deployment.</p>
+<pre><code>docker stack rm func
+docker-machine rm node-1 node-2 node-3
+az group delete -n openfaas
+</code></pre>
 </div>
         </section>
 
@@ -190,13 +275,13 @@ ghost.init({
 
             <section class="share">
                 <h4>Share this post</h4>
-                <a class="icon-twitter" href="https://twitter.com/intent/tweet?text=welcome%20to%20my%20blog&amp;url=http://dotnetdude.github.io/welcome-to-my-blog/" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                <a class="icon-twitter" href="https://twitter.com/intent/tweet?text=How%20to%20run%20openfaas%20in%20azure%20using%20docker%20machine%20and%20Azure%20CLI%3F&amp;url=http://dotnetdude.github.io/how-to-run-openfaas-in-azure/" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
                 <span class="hidden">Twitter</span>
             </a>
-            <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://dotnetdude.github.io/welcome-to-my-blog/" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+            <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://dotnetdude.github.io/how-to-run-openfaas-in-azure/" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
             <span class="hidden">Facebook</span>
         </a>
-        <a class="icon-google-plus" href="https://plus.google.com/share?url=http://dotnetdude.github.io/welcome-to-my-blog/" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+        <a class="icon-google-plus" href="https://plus.google.com/share?url=http://dotnetdude.github.io/how-to-run-openfaas-in-azure/" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
         <span class="hidden">Google+</span>
     </a>
 </section>
@@ -217,7 +302,7 @@ ghost.init({
     <script>
       var my = my || {};
       if(disqus_shortname != null){
-        var disqus_identifier = '59cab18da9316f0001111bd9';
+        var disqus_identifier = '59eb358e98d26d00018dbfc8';
         my.loadDisqus = function() {
             var dsq = document.createElement('script');
             dsq.type = 'text/javascript';
@@ -243,10 +328,10 @@ ghost.init({
 
 
 <aside class="read-next">
-    <a class="read-next-story no-cover" href="../how-to-run-openfaas-in-azure/">
+    <a class="read-next-story prev no-cover" href="../welcome-to-my-blog/">
         <section class="post">
-            <h2>How to run openfaas in azure using docker machine and Azure CLI?</h2>
-            <p>openfaas is a Serverless Framework for Docker and Kubernetes. In this guide we will be using the docker-machine tool…</p>
+            <h2>welcome to my blog</h2>
+            <p>welcome to my blog…</p>
         </section>
     </a>
 </aside>

@@ -1,3 +1,89 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:media="http://search.yahoo.com/mrss/"><channel><title><![CDATA[sureshbabu's blog]]></title><description><![CDATA[ctrl + C  ctrl + V]]></description><link>http://dotnetdude.github.io/</link><image><url>http://dotnetdude.github.io/favicon.png</url><title>sureshbabu&apos;s blog</title><link>http://dotnetdude.github.io/</link></image><generator>Ghost 1.8</generator><lastBuildDate>Mon, 02 Oct 2017 22:25:27 GMT</lastBuildDate><atom:link href="http://dotnetdude.github.io/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[welcome to my blog]]></title><description><![CDATA[<div class="kg-card-markdown"><p>welcome to my blog</p>
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:media="http://search.yahoo.com/mrss/"><channel><title><![CDATA[sureshbabu's blog]]></title><description><![CDATA[ctrl + C  ctrl + V]]></description><link>http://dotnetdude.github.io/</link><image><url>http://dotnetdude.github.io/favicon.png</url><title>sureshbabu&apos;s blog</title><link>http://dotnetdude.github.io/</link></image><generator>Ghost 1.8</generator><lastBuildDate>Sat, 21 Oct 2017 19:34:29 GMT</lastBuildDate><atom:link href="http://dotnetdude.github.io/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[How to run openfaas in azure using docker machine and Azure CLI?]]></title><description><![CDATA[<div class="kg-card-markdown"><p><a href="https://github.com/openfaas/faas">openfaas</a> is a Serverless Framework for Docker and Kubernetes. In this guide we will be using the <code>docker-machine</code> tool to provision a number of Docker Swarm nodes in azure then we'll connect them together and deploy OpenFaaS. Before you get started - sign up to <a href="https://azure.microsoft.com/en-gb/free/">Azure here to get free</a></p></div>]]></description><link>http://dotnetdude.github.io/how-to-run-openfaas-in-azure/</link><guid isPermaLink="false">59eb358e98d26d00018dbfc8</guid><dc:creator><![CDATA[suresh babu]]></dc:creator><pubDate>Sat, 21 Oct 2017 16:33:25 GMT</pubDate><content:encoded><![CDATA[<div class="kg-card-markdown"><p><a href="https://github.com/openfaas/faas">openfaas</a> is a Serverless Framework for Docker and Kubernetes. In this guide we will be using the <code>docker-machine</code> tool to provision a number of Docker Swarm nodes in azure then we'll connect them together and deploy OpenFaaS. Before you get started - sign up to <a href="https://azure.microsoft.com/en-gb/free/">Azure here to get free credits</a>. Once you've signed up come back to the tutorial.</p>
+<h2 id="installazurecliandgettheazuresubscriptionid">Install Azure CLI and get the azure subscription ID</h2>
+<p>First, Install <a href="https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest">Azure CLI</a> and obtain your Azure subscription ID with <a href="https://docs.microsoft.com/en-us/cli/azure/account?view=azure-cli-latest#az_account_show">az account show</a> as follows:</p>
+<pre><code class="language-azurecli">az login
+sub=$(az account show --query &quot;id&quot; -o tsv)
+</code></pre>
+<h2 id="installdockermachine">Install Docker Machine</h2>
+<p>Type in <code>docker-machine</code> to see if you already have the tool installed this is normally bundled with Docker for Mac/Windows. If not then you can download <a href="https://docs.docker.com/machine/install-machine/">Docker Machine here</a>.</p>
+<h2 id="createdockernodes">Create Docker Nodes</h2>
+<p>Use Docker Machine to create Docker hosts or nodes. On Azure your hosts or VMs (Virtual Machines)  will run a full version of Linux. Note: you'll be able to connect to any of your VMs with <code>ssh</code> later on.</p>
+<p>The example below creates 3 vms in the north europe zone, if you want to deploy only one vm change <code>&quot;1 2 3&quot;</code> to <code>&quot;1&quot;</code>.</p>
+<p>This process will take a few minutes as VMS are created and Docker installed.</p>
+<pre><code>for i in 1 2 3; do
+    docker-machine create \
+        --driver azure \
+        --azure-ssh-user azureuser \
+        --azure-location=northeurope \
+        --azure-subscription-id $sub \
+        --azure-resource-group openfaas \
+        --azure-open-port 2377 \
+        --azure-open-port 7946/* \
+        --azure-open-port 4789/udp \
+        node-$i;
+done
+</code></pre>
+<p>List the newly created Docker nodes.</p>
+<pre><code>$ docker-machine ls
+
+NAME     ACTIVE   DRIVER   STATE     URL                        SWARM   DOCKER        ERRORS
+node-1   -        azure    Running   tcp://40.113.93.183:2376           v17.10.0-ce   
+node-2   -        azure    Running   tcp://13.74.156.226:2376           v17.10.0-ce   
+node-3   -        azure    Running   tcp://13.74.254.30:2376            v17.10.0-ce   
+
+</code></pre>
+<p>Refer to the <a href="https://docs.docker.com/machine/drivers/azure/#options">documentation</a> for more detailed information on the azure options for docker-machine.</p>
+<h1 id="createyourdockerswarm">Create your Docker Swarm</h1>
+<p>A Docker Swarm can contain as little as a single master node and begins by running the <code>docker swarm init</code> command. It's important if you have more than one node that you specify an <code>--advertise-addr</code> value.</p>
+<p>Intialize Docker Swarm on <code>node-1</code>.</p>
+<pre><code>$ docker-machine ssh node-1 -- sudo docker swarm init --advertise-addr $(docker-machine ip node-1)
+</code></pre>
+<blockquote>
+<p>If you opted to deploy a single node, then skip to the next section.</p>
+</blockquote>
+<p>When deploying more than a single Docker host take a note of the command to add a worker to the Swarm. This output contains your <em>join token</em>.</p>
+<blockquote>
+<p>If you lose it you can get a new one any time with the command: <code>docker swarm join-token worker</code> or <code>manager</code>.</p>
+</blockquote>
+<pre><code>Swarm initialized: current node (vtq9rjklmjs9gzrhyfykcpzsx) is now a manager.
+
+To add a worker to this swarm, run the following command:
+
+    docker swarm join --token SWMTKN-1-5lnsbx94doxdrd5t1yaj6hfodc3hj72x43tpfiweb0g2ythat2-6i2kom6a9m2ckr44fiu2dtt9a 40.113.93.183:2377
+
+To add a manager to this swarm, run 'docker swarm join-token manager' and follow the instructions.
+</code></pre>
+<p>Add <code>node-2</code> to the Swarm, using the <code>docker swarm join..</code> command returned when initializing the master.</p>
+<pre><code>$ docker-machine ssh node-2 -- sudo docker swarm join --token SWMTKN-1-5lnsbx94doxdrd5t1yaj6hfodc3hj72x43tpfiweb0g2ythat2-6i2kom6a9m2ckr44fiu2dtt9a 40.113.93.183:2377;
+</code></pre>
+<p>Repeat for <code>node-3</code>.</p>
+<pre><code>$ docker-machine ssh node-3 -- sudo docker swarm join --token SWMTKN-1-5lnsbx94doxdrd5t1yaj6hfodc3hj72x43tpfiweb0g2ythat2-6i2kom6a9m2ckr44fiu2dtt9a 40.113.93.183:2377;
+</code></pre>
+<h2 id="configuredockerclitouseremoteswarm">Configure Docker CLI to use remote Swarm</h2>
+<p>Run this command each time you open a new shell, this tells Docker where your remote Swarm is.</p>
+<pre><code>eval $(docker-machine env node-1)
+</code></pre>
+<h2 id="deploytheopenfaasstack">Deploy the OpenFaaS Stack</h2>
+<p>This command clones the OpenFaaS Github repository then checkouts out a stable release before deploying a Docker stack. Docker Swarm will automatically distribute your functions and OpenFaaS services across the cluster.</p>
+<pre><code>$ git clone https://github.com/alexellis/faas &amp;&amp; \
+  cd faas &amp;&amp; \
+  git checkout 0.6.5 &amp;&amp; \
+  ./deploy_stack.sh
+</code></pre>
+<h2 id="testtheui">Test the UI</h2>
+<p>Within a few seconds (or minutes if on a poor WiFi connection) the API gateway and sample functions will be deployed to the Swarm cluster running on Azure.</p>
+<p>Access the Gateway UI via the IP address returned by <code>docker-machine ip node-1</code> (you can also access via <code>node-2</code> and <code>node-3</code>): open port 8080/9090 in node-1 Azure using CLI or Portal.</p>
+<pre><code>$ echo http://$(docker-machine ip node-1):8080
+</code></pre>
+<p>Prometheus metrics can be viewed on port 9090 on a master. Fetch the IP like this:</p>
+<pre><code>$ echo http://$(docker-machine ip node-1):9090
+</code></pre>
+<h2 id="deletingazurevms">Deleting AZURE VMs</h2>
+<p>You can use <code>docker-machine</code> to delete any created vms if are finished with your OpenFaaS deployment.</p>
+<pre><code>docker stack rm func
+docker-machine rm node-1 node-2 node-3
+az group delete -n openfaas
+</code></pre>
+</div>]]></content:encoded></item><item><title><![CDATA[welcome to my blog]]></title><description><![CDATA[<div class="kg-card-markdown"><p>welcome to my blog</p>
 </div>]]></description><link>http://dotnetdude.github.io/welcome-to-my-blog/</link><guid isPermaLink="false">59cab18da9316f0001111bd9</guid><dc:creator><![CDATA[suresh babu]]></dc:creator><pubDate>Tue, 26 Sep 2017 19:59:21 GMT</pubDate><content:encoded><![CDATA[<div class="kg-card-markdown"><p>welcome to my blog</p>
 </div>]]></content:encoded></item></channel></rss>
