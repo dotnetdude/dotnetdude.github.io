@@ -48,7 +48,7 @@
     <meta property="og:description" content="openfaas is a Serverless Framework for Docker and Kubernetes. This guide is Azure version of the openfaas digital ocean guide. In this guide we will be using the docker-machine tool to provision a number of Docker Swarm nodes in azure then we'll connect them together and deploy OpenFaaS. Before you">
     <meta property="og:url" content="https://suresh2.com/how-to-run-openfaas-in-azure/">
     <meta property="article:published_time" content="2017-10-21T16:33:25.000Z">
-    <meta property="article:modified_time" content="2017-10-21T21:17:04.000Z">
+    <meta property="article:modified_time" content="2017-10-21T22:29:52.000Z">
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="How to run openfaas in azure using docker machine and Azure CLI?">
     <meta name="twitter:description" content="openfaas is a Serverless Framework for Docker and Kubernetes. This guide is Azure version of the openfaas digital ocean guide. In this guide we will be using the docker-machine tool to provision a number of Docker Swarm nodes in azure then we'll connect them together and deploy OpenFaaS. Before you">
@@ -81,7 +81,7 @@
     "headline": "How to run openfaas in azure using docker machine and Azure CLI?",
     "url": "https://suresh2.com/how-to-run-openfaas-in-azure/",
     "datePublished": "2017-10-21T16:33:25.000Z",
-    "dateModified": "2017-10-21T21:17:04.000Z",
+    "dateModified": "2017-10-21T22:29:52.000Z",
     "description": "openfaas is a Serverless Framework for Docker and Kubernetes. This guide is Azure version of the openfaas digital ocean guide. In this guide we will be using the docker-machine tool to provision a number of Docker Swarm nodes in azure then we&#x27;ll connect them together and deploy OpenFaaS. Before you",
     "mainEntityOfPage": {
         "@type": "WebPage",
@@ -177,9 +177,22 @@ sub=$(az account show --query "id" -o tsv)
 <p>Type in <code>docker-machine</code> to see if you already have the tool installed this is normally bundled with Docker for Mac/Windows. If not then you can download <a href="https://docs.docker.com/machine/install-machine/">Docker Machine here</a>.</p>
 <h2 id="createdockernodes">Create Docker Nodes</h2>
 <p>Use Docker Machine to create Docker hosts or nodes. On Azure your hosts or VMs (Virtual Machines)  will run a full version of Linux. Note: you'll be able to connect to any of your VMs with <code>ssh</code> later on.</p>
-<p>The example below creates 3 vms in the north europe zone, if you want to deploy only one vm change <code>"1 2 3"</code> to <code>"1"</code>.</p>
+<p>The example below creates 3 vms in the north europe zone, if you want to deploy only one vm don't run the step 2.</p>
 <p>This process will take a few minutes as VMS are created and Docker installed.</p>
-<pre><code>for i in 1 2 3; do
+<pre><code>docker-machine create \
+        --driver azure \
+        --azure-ssh-user azureuser \
+        --azure-location=northeurope \
+        --azure-subscription-id $sub \
+        --azure-resource-group openfaas \
+        --azure-open-port 8080 \
+        --azure-open-port 9090 \
+        --azure-open-port 2377 \
+        --azure-open-port 7946/* \
+        --azure-open-port 4789/udp \
+        node-1;
+        
+for i in {2..3}; do
     docker-machine create \
         --driver azure \
         --azure-ssh-user azureuser \
@@ -241,7 +254,7 @@ To add a manager to this swarm, run 'docker swarm join-token manager' and follow
 </code></pre>
 <h2 id="testtheui">Test the UI</h2>
 <p>Within a few seconds (or minutes if on a poor WiFi connection) the API gateway and sample functions will be deployed to the Swarm cluster running on Azure.</p>
-<p>Access the Gateway UI via the IP address returned by <code>docker-machine ip node-1</code> (you can also access via <code>node-2</code> and <code>node-3</code>): open port 8080/9090 in node-1 Azure using CLI or Portal.</p>
+<p>Access the Gateway UI via the IP address returned by <code>docker-machine ip node-1</code> (you can also access via <code>node-2</code> and <code>node-3</code>):.</p>
 <pre><code>$ echo http://$(docker-machine ip node-1):8080
 </code></pre>
 <p>Prometheus metrics can be viewed on port 9090 on a master. Fetch the IP like this:</p>
