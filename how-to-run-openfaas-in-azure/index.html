@@ -48,13 +48,20 @@
     <meta property="og:description" content="openfaas is a Serverless Framework for Docker and Kubernetes. This guide is Azure version of the openfaas digital ocean guide. In this guide we will be using the docker-machine tool to provision a number of Docker Swarm nodes in azure then we'll connect them together and deploy OpenFaaS. Before you">
     <meta property="og:url" content="https://suresh2.com/how-to-run-openfaas-in-azure/">
     <meta property="article:published_time" content="2017-10-21T16:33:25.000Z">
-    <meta property="article:modified_time" content="2017-10-21T22:29:52.000Z">
+    <meta property="article:modified_time" content="2017-10-23T19:27:51.000Z">
+    <meta property="article:tag" content="openfaas">
+    <meta property="article:tag" content="docker">
+    <meta property="article:tag" content="swarm">
+    <meta property="article:tag" content="azure">
+    
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="How to run openfaas in azure using docker machine and Azure CLI?">
     <meta name="twitter:description" content="openfaas is a Serverless Framework for Docker and Kubernetes. This guide is Azure version of the openfaas digital ocean guide. In this guide we will be using the docker-machine tool to provision a number of Docker Swarm nodes in azure then we'll connect them together and deploy OpenFaaS. Before you">
     <meta name="twitter:url" content="https://suresh2.com/how-to-run-openfaas-in-azure/">
     <meta name="twitter:label1" content="Written by">
     <meta name="twitter:data1" content="suresh babu">
+    <meta name="twitter:label2" content="Filed under">
+    <meta name="twitter:data2" content="openfaas, docker, swarm, azure">
     <meta name="twitter:site" content="@suresh2">
     
     <script type="application/ld+json">
@@ -81,7 +88,8 @@
     "headline": "How to run openfaas in azure using docker machine and Azure CLI?",
     "url": "https://suresh2.com/how-to-run-openfaas-in-azure/",
     "datePublished": "2017-10-21T16:33:25.000Z",
-    "dateModified": "2017-10-21T22:29:52.000Z",
+    "dateModified": "2017-10-23T19:27:51.000Z",
+    "keywords": "openfaas, docker, swarm, azure",
     "description": "openfaas is a Serverless Framework for Docker and Kubernetes. This guide is Azure version of the openfaas digital ocean guide. In this guide we will be using the docker-machine tool to provision a number of Docker Swarm nodes in azure then we&#x27;ll connect them together and deploy OpenFaaS. Before you",
     "mainEntityOfPage": {
         "@type": "WebPage",
@@ -105,7 +113,7 @@ ghost.init({
   var github_user = 'dotnetdude';
 </script>
     </head>
-    <body class="post-template nav-closed">
+    <body class="post-template tag-openfaas tag-docker tag-swarm tag-azure nav-closed">
 
     <div class="nav">
     <div class="main-nav">
@@ -157,11 +165,11 @@ ghost.init({
 </header>
 
 <main class="content" role="main">
-    <article class="post">
+    <article class="post tag-openfaas tag-docker tag-swarm tag-azure">
         <header class="post-header">
             <h1 class="post-title">How to run openfaas in azure using docker machine and Azure CLI?</h1>
             <section class="post-meta">
-                <time class="post-date" datetime="2017-10-21">21 October 2017</time> 
+                <time class="post-date" datetime="2017-10-21">21 October 2017</time>  on <a href="../tag/openfaas/">openfaas</a>, <a href="../tag/docker/">docker</a>, <a href="../tag/swarm/">swarm</a>, <a href="../tag/azure/">azure</a>
             </section>
         </header>
 
@@ -170,7 +178,7 @@ ghost.init({
 <p>In this guide we will be using the <code>docker-machine</code> tool to provision a number of Docker Swarm nodes in azure then we'll connect them together and deploy OpenFaaS. Before you get started - sign up to <a href="https://azure.microsoft.com/en-gb/free/">Azure here to get free credits</a>. Once you've signed up come back to the tutorial.</p>
 <h2 id="installazurecliandgettheazuresubscriptionid">Install Azure CLI and get the azure subscription ID</h2>
 <p>First, Install <a href="https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest">Azure CLI</a> and obtain your Azure subscription ID with <a href="https://docs.microsoft.com/en-us/cli/azure/account?view=azure-cli-latest#az_account_show">az account show</a> as follows:</p>
-<pre><code class="language-azurecli">az login
+<pre><code class="language-shell">az login
 sub=$(az account show --query "id" -o tsv)
 </code></pre>
 <h2 id="installdockermachine">Install Docker Machine</h2>
@@ -179,7 +187,7 @@ sub=$(az account show --query "id" -o tsv)
 <p>Use Docker Machine to create Docker hosts or nodes. On Azure your hosts or VMs (Virtual Machines)  will run a full version of Linux. Note: you'll be able to connect to any of your VMs with <code>ssh</code> later on.</p>
 <p>The example below creates 3 vms in the north europe zone, if you want to deploy only one vm don't run the step 2.</p>
 <p>This process will take a few minutes as VMS are created and Docker installed.</p>
-<pre><code>docker-machine create \
+<pre><code class="language-shell">docker-machine create \
         --driver azure \
         --azure-ssh-user azureuser \
         --azure-location=northeurope \
@@ -206,7 +214,7 @@ for i in {2..3}; do
 done
 </code></pre>
 <p>List the newly created Docker nodes.</p>
-<pre><code>$ docker-machine ls
+<pre><code class="language-shell">$ docker-machine ls
 
 NAME     ACTIVE   DRIVER   STATE     URL                        SWARM   DOCKER        ERRORS
 node-1   -        azure    Running   tcp://40.113.93.183:2376           v17.10.0-ce   
@@ -218,7 +226,10 @@ node-3   -        azure    Running   tcp://13.74.254.30:2376            v17.10.0
 <h1 id="createyourdockerswarm">Create your Docker Swarm</h1>
 <p>A Docker Swarm can contain as little as a single master node and begins by running the <code>docker swarm init</code> command. It's important if you have more than one node that you specify an <code>--advertise-addr</code> value.</p>
 <p>Intialize Docker Swarm on <code>node-1</code>.</p>
-<pre><code>$ docker-machine ssh node-1 -- sudo docker swarm init --advertise-addr $(docker-machine ip node-1)
+<pre><code class="language-shell">$ docker-machine ssh node-1 -- sudo docker swarm init --advertise-addr $(docker-machine ip node-1)
+</code></pre>
+<p>store the token in worker_token.</p>
+<pre><code class="language-shell">export worker_token=$(docker-machine ssh node-1 "sudo docker swarm join-token worker -q")
 </code></pre>
 <blockquote>
 <p>If you opted to deploy a single node, then skip to the next section.</p>
@@ -227,7 +238,7 @@ node-3   -        azure    Running   tcp://13.74.254.30:2376            v17.10.0
 <blockquote>
 <p>If you lose it you can get a new one any time with the command: <code>docker swarm join-token worker</code> or <code>manager</code>.</p>
 </blockquote>
-<pre><code>Swarm initialized: current node (vtq9rjklmjs9gzrhyfykcpzsx) is now a manager.
+<pre><code class="language-shell">Swarm initialized: current node (vtq9rjklmjs9gzrhyfykcpzsx) is now a manager.
 
 To add a worker to this swarm, run the following command:
 
@@ -236,10 +247,10 @@ To add a worker to this swarm, run the following command:
 To add a manager to this swarm, run 'docker swarm join-token manager' and follow the instructions.
 </code></pre>
 <p>Add <code>node-2</code> to the Swarm, using the <code>docker swarm join..</code> command returned when initializing the master.</p>
-<pre><code>$ docker-machine ssh node-2 -- sudo docker swarm join --token SWMTKN-1-5lnsbx94doxdrd5t1yaj6hfodc3hj72x43tpfiweb0g2ythat2-6i2kom6a9m2ckr44fiu2dtt9a 40.113.93.183:2377;
+<pre><code>$ docker-machine ssh node-2 -- sudo docker swarm join --token ${worker_token} $(docker-machine ip node-1);
 </code></pre>
 <p>Repeat for <code>node-3</code>.</p>
-<pre><code>$ docker-machine ssh node-3 -- sudo docker swarm join --token SWMTKN-1-5lnsbx94doxdrd5t1yaj6hfodc3hj72x43tpfiweb0g2ythat2-6i2kom6a9m2ckr44fiu2dtt9a 40.113.93.183:2377;
+<pre><code class="language-shell">$ docker-machine ssh node-3 -- sudo docker swarm join --token ${worker_token} $(docker-machine ip node-1);
 </code></pre>
 <h2 id="configuredockerclitouseremoteswarm">Configure Docker CLI to use remote Swarm</h2>
 <p>Run this command each time you open a new shell, this tells Docker where your remote Swarm is.</p>

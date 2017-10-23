@@ -1,4 +1,4 @@
-<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" version="2.0"><channel><title>sureshbabu's blog</title><description>ctrl + C  ctrl + V</description><link>https://suresh2.com/</link><image><url>https://suresh2.com/favicon.png</url><title>sureshbabu's blog</title><link>https://suresh2.com/</link></image><generator>Ghost 1.8</generator><lastBuildDate>Sat, 21 Oct 2017 21:17:46 GMT</lastBuildDate><atom:link href="https://suresh2.com/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title>How to run openfaas in azure using docker machine and Azure CLI?</title><description>&lt;div class="kg-card-markdown"&gt;&lt;p&gt;&lt;a href="https://github.com/openfaas/faas"&gt;openfaas&lt;/a&gt; is a Serverless Framework for Docker and Kubernetes. This guide is Azure version of the &lt;a href="https://github.com/openfaas/faas/blob/master/guide/deployment_digitalocean.md"&gt;openfaas digital ocean guide&lt;/a&gt;.&lt;/p&gt;
+<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" version="2.0"><channel><title>sureshbabu's blog</title><description>ctrl + C  ctrl + V</description><link>https://suresh2.com/</link><image><url>https://suresh2.com/favicon.png</url><title>sureshbabu's blog</title><link>https://suresh2.com/</link></image><generator>Ghost 1.8</generator><lastBuildDate>Sat, 21 Oct 2017 22:35:44 GMT</lastBuildDate><atom:link href="https://suresh2.com/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title>How to run openfaas in azure using docker machine and Azure CLI?</title><description>&lt;div class="kg-card-markdown"&gt;&lt;p&gt;&lt;a href="https://github.com/openfaas/faas"&gt;openfaas&lt;/a&gt; is a Serverless Framework for Docker and Kubernetes. This guide is Azure version of the &lt;a href="https://github.com/openfaas/faas/blob/master/guide/deployment_digitalocean.md"&gt;openfaas digital ocean guide&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;In this guide we will be using the &lt;code&gt;docker-machine&lt;/code&gt; tool to provision a number of Docker Swarm nodes in azure then we'll connect them together and deploy OpenFaaS. Before you&lt;/p&gt;&lt;/div&gt;</description><link>https://suresh2.com/how-to-run-openfaas-in-azure/</link><guid isPermaLink="false">59eb358e98d26d00018dbfc8</guid><dc:creator>suresh babu</dc:creator><pubDate>Sat, 21 Oct 2017 16:33:25 GMT</pubDate><content:encoded>&lt;div class="kg-card-markdown"&gt;&lt;p&gt;&lt;a href="https://github.com/openfaas/faas"&gt;openfaas&lt;/a&gt; is a Serverless Framework for Docker and Kubernetes. This guide is Azure version of the &lt;a href="https://github.com/openfaas/faas/blob/master/guide/deployment_digitalocean.md"&gt;openfaas digital ocean guide&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;In this guide we will be using the &lt;code&gt;docker-machine&lt;/code&gt; tool to provision a number of Docker Swarm nodes in azure then we'll connect them together and deploy OpenFaaS. Before you get started - sign up to &lt;a href="https://azure.microsoft.com/en-gb/free/"&gt;Azure here to get free credits&lt;/a&gt;. Once you've signed up come back to the tutorial.&lt;/p&gt;
 &lt;h2 id="installazurecliandgettheazuresubscriptionid"&gt;Install Azure CLI and get the azure subscription ID&lt;/h2&gt;
@@ -10,9 +10,22 @@ sub=$(az account show --query &amp;quot;id&amp;quot; -o tsv)
 &lt;p&gt;Type in &lt;code&gt;docker-machine&lt;/code&gt; to see if you already have the tool installed this is normally bundled with Docker for Mac/Windows. If not then you can download &lt;a href="https://docs.docker.com/machine/install-machine/"&gt;Docker Machine here&lt;/a&gt;.&lt;/p&gt;
 &lt;h2 id="createdockernodes"&gt;Create Docker Nodes&lt;/h2&gt;
 &lt;p&gt;Use Docker Machine to create Docker hosts or nodes. On Azure your hosts or VMs (Virtual Machines)  will run a full version of Linux. Note: you'll be able to connect to any of your VMs with &lt;code&gt;ssh&lt;/code&gt; later on.&lt;/p&gt;
-&lt;p&gt;The example below creates 3 vms in the north europe zone, if you want to deploy only one vm change &lt;code&gt;&amp;quot;1 2 3&amp;quot;&lt;/code&gt; to &lt;code&gt;&amp;quot;1&amp;quot;&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;The example below creates 3 vms in the north europe zone, if you want to deploy only one vm don't run the step 2.&lt;/p&gt;
 &lt;p&gt;This process will take a few minutes as VMS are created and Docker installed.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;for i in 1 2 3; do
+&lt;pre&gt;&lt;code&gt;docker-machine create \
+        --driver azure \
+        --azure-ssh-user azureuser \
+        --azure-location=northeurope \
+        --azure-subscription-id $sub \
+        --azure-resource-group openfaas \
+        --azure-open-port 8080 \
+        --azure-open-port 9090 \
+        --azure-open-port 2377 \
+        --azure-open-port 7946/* \
+        --azure-open-port 4789/udp \
+        node-1;
+        
+for i in {2..3}; do
     docker-machine create \
         --driver azure \
         --azure-ssh-user azureuser \
@@ -74,7 +87,7 @@ To add a manager to this swarm, run 'docker swarm join-token manager' and follow
 &lt;/code&gt;&lt;/pre&gt;
 &lt;h2 id="testtheui"&gt;Test the UI&lt;/h2&gt;
 &lt;p&gt;Within a few seconds (or minutes if on a poor WiFi connection) the API gateway and sample functions will be deployed to the Swarm cluster running on Azure.&lt;/p&gt;
-&lt;p&gt;Access the Gateway UI via the IP address returned by &lt;code&gt;docker-machine ip node-1&lt;/code&gt; (you can also access via &lt;code&gt;node-2&lt;/code&gt; and &lt;code&gt;node-3&lt;/code&gt;): open port 8080/9090 in node-1 Azure using CLI or Portal.&lt;/p&gt;
+&lt;p&gt;Access the Gateway UI via the IP address returned by &lt;code&gt;docker-machine ip node-1&lt;/code&gt; (you can also access via &lt;code&gt;node-2&lt;/code&gt; and &lt;code&gt;node-3&lt;/code&gt;):.&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;$ echo http://$(docker-machine ip node-1):8080
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Prometheus metrics can be viewed on port 9090 on a master. Fetch the IP like this:&lt;/p&gt;
