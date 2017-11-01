@@ -1,9 +1,22 @@
-<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" version="2.0"><channel><title>sureshbabu's blog</title><description>ctrl + C  ctrl + V</description><link>https://suresh2.com/</link><image><url>https://suresh2.com/favicon.png</url><title>sureshbabu's blog</title><link>https://suresh2.com/</link></image><generator>Ghost 1.8</generator><lastBuildDate>Sat, 21 Oct 2017 22:35:44 GMT</lastBuildDate><atom:link href="https://suresh2.com/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title>How to run openfaas in azure using docker machine and Azure CLI?</title><description>&lt;div class="kg-card-markdown"&gt;&lt;p&gt;&lt;a href="https://github.com/openfaas/faas"&gt;openfaas&lt;/a&gt; is a Serverless Framework for Docker and Kubernetes. This guide is Azure version of the &lt;a href="https://github.com/openfaas/faas/blob/master/guide/deployment_digitalocean.md"&gt;openfaas digital ocean guide&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;In this guide we will be using the &lt;code&gt;docker-machine&lt;/code&gt; tool to provision a number of Docker Swarm nodes in azure then we'll connect them together and deploy OpenFaaS. Before you&lt;/p&gt;&lt;/div&gt;</description><link>https://suresh2.com/how-to-run-openfaas-in-azure/</link><guid isPermaLink="false">59eb358e98d26d00018dbfc8</guid><dc:creator>suresh babu</dc:creator><pubDate>Sat, 21 Oct 2017 16:33:25 GMT</pubDate><content:encoded>&lt;div class="kg-card-markdown"&gt;&lt;p&gt;&lt;a href="https://github.com/openfaas/faas"&gt;openfaas&lt;/a&gt; is a Serverless Framework for Docker and Kubernetes. This guide is Azure version of the &lt;a href="https://github.com/openfaas/faas/blob/master/guide/deployment_digitalocean.md"&gt;openfaas digital ocean guide&lt;/a&gt;.&lt;/p&gt;
+<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" version="2.0"><channel><title>sureshbabu's blog</title><description>ctrl + C  ctrl + V</description><link>https://suresh2.com/</link><image><url>https://suresh2.com/favicon.png</url><title>sureshbabu's blog</title><link>https://suresh2.com/</link></image><generator>Ghost 1.8</generator><lastBuildDate>Wed, 01 Nov 2017 23:12:41 GMT</lastBuildDate><atom:link href="https://suresh2.com/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title>Attended 2 days microsoft future decoded conference</title><description>&lt;div class="kg-card-markdown"&gt;&lt;p&gt;I just came back from two days Microsoft &lt;a href="https://www.futuredecoded.com/content/agendas"&gt;future decoded&lt;/a&gt; conference. I learned a lot of new things and updated knowledge on known things. I tried some really cool real life demo on &lt;a href="https://www.microsoft.com/en-gb/hololens"&gt;Microsoft hololens&lt;/a&gt; and also tried &lt;a href="http://store.hp.com/UKStore/Merch/Offer.aspx?p=c-hp-mixed-reality-headset"&gt;hp mixed reality headset&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id="opensource"&gt;Open source&lt;/h2&gt;
+&lt;p&gt;I also got one of the&lt;/p&gt;&lt;/div&gt;</description><link>https://suresh2.com/attended-2-days-future-decoded/</link><guid isPermaLink="false">59fa321f48c10c00011dcded</guid><category>microsoft</category><category>conference</category><category>blockchain</category><category>devops</category><category>quantum</category><category>dna storage</category><dc:creator>suresh babu</dc:creator><pubDate>Wed, 01 Nov 2017 23:06:34 GMT</pubDate><content:encoded>&lt;div class="kg-card-markdown"&gt;&lt;p&gt;I just came back from two days Microsoft &lt;a href="https://www.futuredecoded.com/content/agendas"&gt;future decoded&lt;/a&gt; conference. I learned a lot of new things and updated knowledge on known things. I tried some really cool real life demo on &lt;a href="https://www.microsoft.com/en-gb/hololens"&gt;Microsoft hololens&lt;/a&gt; and also tried &lt;a href="http://store.hp.com/UKStore/Merch/Offer.aspx?p=c-hp-mixed-reality-headset"&gt;hp mixed reality headset&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id="opensource"&gt;Open source&lt;/h2&gt;
+&lt;p&gt;I also got one of the red hat from the redhat linux stand. Is anyone even imagined about a linux hat will be given in Microsoft conference few years before? Microsoft  changed a lot after Satya's leadership and its truly adopting to open source now.&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://suresh2.com/content/images/2017/11/redhat_at_microsoft_conf.jpg" alt="redhat_at_microsoft_conf"&gt;&lt;/p&gt;
+&lt;p&gt;I would like to share some of the new things that i learned in the conference and also writing this for my future reference.&lt;/p&gt;
+&lt;h2 id="blockchain"&gt;block chain&lt;/h2&gt;
+&lt;p&gt;Microsoft is not only supporting  all the flavors of block chain like &lt;a href="https://www.ethereum.org"&gt;etherum&lt;/a&gt;, &lt;a href="https://www.hyperledger.org"&gt;hyperledger&lt;/a&gt; etc in azure but also created a new block chain framework called &lt;a href="https://azure.microsoft.com/en-us/blog/announcing-microsoft-s-coco-framework-for-enterprise-blockchain-networks/"&gt;coco framework&lt;/a&gt; to minimize the effort to create a block chain based application in enterprise world and the &lt;a href="https://github.com/Azure/coco-framework"&gt;source code&lt;/a&gt; of the project will be released to Github soon.&lt;/p&gt;
+&lt;h2 id="quantumcomputingdnastorage"&gt;Quantum computing &amp;amp; DNA Storage&lt;/h2&gt;
+&lt;p&gt;I also learned a lot about &lt;a href="http://microsoft.com/quantum"&gt;Quantum Computing&lt;/a&gt; and &lt;a href="https://www.microsoft.com/en-us/research/project/dna-storage/"&gt;DNA storage&lt;/a&gt; which will take the computing and data storage to the next level.&lt;/p&gt;
+&lt;h2 id="devops"&gt;DevOps&lt;/h2&gt;
+&lt;p&gt;I really enjoyed all the &lt;a href="https://www.futuredecoded.com/sessions?page=1&amp;amp;track=techdeepdives&amp;amp;timeslotday=2017-11-01&amp;amp;timeslottimefrom=15%3A00&amp;amp;timeslottimeto=16%3A00"&gt;tech deep dive sessions&lt;/a&gt;  that i attended but i really loved the &lt;a href="https://www.futuredecoded.com/session/34f0cf37-f7a8-e711-80c2-000d3a2269dd"&gt;What If Cortana was your release manager?&lt;/a&gt; session. The speakers clearly explained  how to create a really intelligent release management experience with the help of &lt;a href="https://www.visualstudio.com/en-us/docs/integrate/api/overview"&gt;vsts api&lt;/a&gt;, &lt;a href="https://developer.microsoft.com/en-us/graph/graph-explorer"&gt;graph API&lt;/a&gt; and &lt;a href="https://azure.microsoft.com/en-gb/services/cognitive-services/"&gt;cognitive services&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;</content:encoded></item><item><title>How to run openfaas in azure using docker machine and Azure CLI?</title><description>&lt;div class="kg-card-markdown"&gt;&lt;p&gt;&lt;a href="https://github.com/openfaas/faas"&gt;openfaas&lt;/a&gt; is a Serverless Framework for Docker and Kubernetes. This guide is Azure version of the &lt;a href="https://github.com/openfaas/faas/blob/master/guide/deployment_digitalocean.md"&gt;openfaas digital ocean guide&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;In this guide we will be using the &lt;code&gt;docker-machine&lt;/code&gt; tool to provision a number of Docker Swarm nodes in azure then we'll connect them together and deploy OpenFaaS. Before you&lt;/p&gt;&lt;/div&gt;</description><link>https://suresh2.com/how-to-run-openfaas-in-azure/</link><guid isPermaLink="false">59eb358e98d26d00018dbfc8</guid><category>openfaas</category><category>docker</category><category>swarm</category><category>azure</category><dc:creator>suresh babu</dc:creator><pubDate>Sat, 21 Oct 2017 16:33:25 GMT</pubDate><content:encoded>&lt;div class="kg-card-markdown"&gt;&lt;p&gt;&lt;a href="https://github.com/openfaas/faas"&gt;openfaas&lt;/a&gt; is a Serverless Framework for Docker and Kubernetes. This guide is Azure version of the &lt;a href="https://github.com/openfaas/faas/blob/master/guide/deployment_digitalocean.md"&gt;openfaas digital ocean guide&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;In this guide we will be using the &lt;code&gt;docker-machine&lt;/code&gt; tool to provision a number of Docker Swarm nodes in azure then we'll connect them together and deploy OpenFaaS. Before you get started - sign up to &lt;a href="https://azure.microsoft.com/en-gb/free/"&gt;Azure here to get free credits&lt;/a&gt;. Once you've signed up come back to the tutorial.&lt;/p&gt;
 &lt;h2 id="installazurecliandgettheazuresubscriptionid"&gt;Install Azure CLI and get the azure subscription ID&lt;/h2&gt;
 &lt;p&gt;First, Install &lt;a href="https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest"&gt;Azure CLI&lt;/a&gt; and obtain your Azure subscription ID with &lt;a href="https://docs.microsoft.com/en-us/cli/azure/account?view=azure-cli-latest#az_account_show"&gt;az account show&lt;/a&gt; as follows:&lt;/p&gt;
-&lt;pre&gt;&lt;code class="language-azurecli"&gt;az login
+&lt;pre&gt;&lt;code class="language-shell"&gt;az login
 sub=$(az account show --query &amp;quot;id&amp;quot; -o tsv)
 &lt;/code&gt;&lt;/pre&gt;
 &lt;h2 id="installdockermachine"&gt;Install Docker Machine&lt;/h2&gt;
@@ -12,7 +25,7 @@ sub=$(az account show --query &amp;quot;id&amp;quot; -o tsv)
 &lt;p&gt;Use Docker Machine to create Docker hosts or nodes. On Azure your hosts or VMs (Virtual Machines)  will run a full version of Linux. Note: you'll be able to connect to any of your VMs with &lt;code&gt;ssh&lt;/code&gt; later on.&lt;/p&gt;
 &lt;p&gt;The example below creates 3 vms in the north europe zone, if you want to deploy only one vm don't run the step 2.&lt;/p&gt;
 &lt;p&gt;This process will take a few minutes as VMS are created and Docker installed.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;docker-machine create \
+&lt;pre&gt;&lt;code class="language-shell"&gt;docker-machine create \
         --driver azure \
         --azure-ssh-user azureuser \
         --azure-location=northeurope \
@@ -39,7 +52,7 @@ for i in {2..3}; do
 done
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;List the newly created Docker nodes.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;$ docker-machine ls
+&lt;pre&gt;&lt;code class="language-shell"&gt;$ docker-machine ls
 
 NAME     ACTIVE   DRIVER   STATE     URL                        SWARM   DOCKER        ERRORS
 node-1   -        azure    Running   tcp://40.113.93.183:2376           v17.10.0-ce   
@@ -51,7 +64,10 @@ node-3   -        azure    Running   tcp://13.74.254.30:2376            v17.10.0
 &lt;h1 id="createyourdockerswarm"&gt;Create your Docker Swarm&lt;/h1&gt;
 &lt;p&gt;A Docker Swarm can contain as little as a single master node and begins by running the &lt;code&gt;docker swarm init&lt;/code&gt; command. It's important if you have more than one node that you specify an &lt;code&gt;--advertise-addr&lt;/code&gt; value.&lt;/p&gt;
 &lt;p&gt;Intialize Docker Swarm on &lt;code&gt;node-1&lt;/code&gt;.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;$ docker-machine ssh node-1 -- sudo docker swarm init --advertise-addr $(docker-machine ip node-1)
+&lt;pre&gt;&lt;code class="language-shell"&gt;$ docker-machine ssh node-1 -- sudo docker swarm init --advertise-addr $(docker-machine ip node-1)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;store the token in worker_token.&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-shell"&gt;export worker_token=$(docker-machine ssh node-1 &amp;quot;sudo docker swarm join-token worker -q&amp;quot;)
 &lt;/code&gt;&lt;/pre&gt;
 &lt;blockquote&gt;
 &lt;p&gt;If you opted to deploy a single node, then skip to the next section.&lt;/p&gt;
@@ -60,7 +76,7 @@ node-3   -        azure    Running   tcp://13.74.254.30:2376            v17.10.0
 &lt;blockquote&gt;
 &lt;p&gt;If you lose it you can get a new one any time with the command: &lt;code&gt;docker swarm join-token worker&lt;/code&gt; or &lt;code&gt;manager&lt;/code&gt;.&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;pre&gt;&lt;code&gt;Swarm initialized: current node (vtq9rjklmjs9gzrhyfykcpzsx) is now a manager.
+&lt;pre&gt;&lt;code class="language-shell"&gt;Swarm initialized: current node (vtq9rjklmjs9gzrhyfykcpzsx) is now a manager.
 
 To add a worker to this swarm, run the following command:
 
@@ -69,10 +85,10 @@ To add a worker to this swarm, run the following command:
 To add a manager to this swarm, run 'docker swarm join-token manager' and follow the instructions.
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Add &lt;code&gt;node-2&lt;/code&gt; to the Swarm, using the &lt;code&gt;docker swarm join..&lt;/code&gt; command returned when initializing the master.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;$ docker-machine ssh node-2 -- sudo docker swarm join --token SWMTKN-1-5lnsbx94doxdrd5t1yaj6hfodc3hj72x43tpfiweb0g2ythat2-6i2kom6a9m2ckr44fiu2dtt9a 40.113.93.183:2377;
+&lt;pre&gt;&lt;code&gt;$ docker-machine ssh node-2 -- sudo docker swarm join --token ${worker_token} $(docker-machine ip node-1);
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Repeat for &lt;code&gt;node-3&lt;/code&gt;.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;$ docker-machine ssh node-3 -- sudo docker swarm join --token SWMTKN-1-5lnsbx94doxdrd5t1yaj6hfodc3hj72x43tpfiweb0g2ythat2-6i2kom6a9m2ckr44fiu2dtt9a 40.113.93.183:2377;
+&lt;pre&gt;&lt;code class="language-shell"&gt;$ docker-machine ssh node-3 -- sudo docker swarm join --token ${worker_token} $(docker-machine ip node-1);
 &lt;/code&gt;&lt;/pre&gt;
 &lt;h2 id="configuredockerclitouseremoteswarm"&gt;Configure Docker CLI to use remote Swarm&lt;/h2&gt;
 &lt;p&gt;Run this command each time you open a new shell, this tells Docker where your remote Swarm is.&lt;/p&gt;
