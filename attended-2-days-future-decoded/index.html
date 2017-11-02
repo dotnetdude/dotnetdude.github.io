@@ -42,7 +42,7 @@
     <meta name="referrer" content="no-referrer-when-downgrade">
     <link rel="amphtml" href="https://suresh2.com/attended-2-days-future-decoded/amp/">
     
-    <meta property="og:site_name" content="sureshbabu's blog">
+    <meta property="og:site_name" content="suresh babu's blog">
     <meta property="og:type" content="article">
     <meta property="og:title" content="Attended 2 days microsoft future decoded conference">
     <meta property="og:description" content="I just came back from two days Microsoft future decoded conference. I learned a lot of new things and updated knowledge on known things. I tried some really cool real life demo on Microsoft hololens and also tried hp mixed reality headset. Open source I also got one of the">
@@ -72,7 +72,7 @@
     "@type": "Article",
     "publisher": {
         "@type": "Organization",
-        "name": "sureshbabu&#x27;s blog",
+        "name": "suresh babu&#x27;s blog",
         "logo": {
             "@type": "ImageObject",
             "url": "https://suresh2.com/favicon.ico",
@@ -113,11 +113,12 @@ ghost.init({
 });
 </script>
     <meta name="generator" content="Ghost 1.8">
-    <link rel="alternate" type="application/rss+xml" title="sureshbabu's blog" href="https://suresh2.com/rss/">
+    <link rel="alternate" type="application/rss+xml" title="suresh babu's blog" href="https://suresh2.com/rss/">
     <script type="text/javascript">
+  //variables
   var ga_ua = 'UA-107076197-1';
   var disqus_shortname = 'suresh2';
-  var github_user = 'dotnetdude';
+  var github_user = 'dotnetdude';     
 </script>
     </head>
     <body class="post-template tag-conference tag-blockchain tag-devops tag-quantum tag-dna-storage tag-microsoft nav-closed">
@@ -166,7 +167,7 @@ ghost.init({
 
 <header class="main-header post-head no-cover">
     <nav class="main-nav  clearfix">
-          <a class="blog-logo" href="https://suresh2.com"><img src="../assets/img/Home-icon.svg?v=21647ba45e" alt="sureshbabu's blog"></a>
+          <a class="blog-logo" href="https://suresh2.com"><img src="../assets/img/Home-icon.svg?v=21647ba45e" alt="suresh babu's blog"></a>
         <a class="menu-button icon-menu" href="index.html#"><span class="word">Menu</span></a>
     </nav>
 </header>
@@ -308,13 +309,25 @@ ghost.init({
 
 
         <footer class="site-footer clearfix">
-            <section class="copyright"><a href="https://suresh2.com">sureshbabu's blog</a> © 2017</section>
+            <section class="copyright"><a href="https://suresh2.com">suresh babu's blog</a> © 2017</section>
             <section class="poweredby">Proudly published with <a href="https://ghost.org">Ghost</a></section>
         </footer>
 
     </div>
     
-    
+    <script type="text/javascript">
+//open links in new tab
+    $('a').each(function() {
+       var a = new RegExp('/' + window.location.host + '/');
+       if(!a.test(this.href)) {
+           $(this).click(function(event) {
+               event.preventDefault();
+               event.stopPropagation();
+               window.open(this.href, '_blank');
+           });
+       }
+    });
+</script>
     <script type="text/javascript" src="../assets/js/jquery.fitvids.js?v=21647ba45e"></script>
     <script type="text/javascript" src="../assets/js/index.js?v=21647ba45e"></script>
     <script type="text/javascript" src="../assets/js/ghostly.js?v=21647ba45e"></script>

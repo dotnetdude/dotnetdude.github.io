@@ -47,7 +47,7 @@
     <link rel="canonical" href="https://suresh2.com/about/" />
     <meta name="referrer" content="no-referrer-when-downgrade" />
     
-    <meta property="og:site_name" content="sureshbabu&#x27;s blog" />
+    <meta property="og:site_name" content="suresh babu&#x27;s blog" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="About me" />
     <meta property="og:description" content="Hi! My name is suresh babu. I born in small town called paramakudi in TamilNadu, India. I Fall in love with computers during my school days and decided to make it as my career. After traveled and worked in different parts of the world, currently settled in UK and working" />
@@ -71,7 +71,7 @@
     "@type": "Article",
     "publisher": {
         "@type": "Organization",
-        "name": "sureshbabu&#x27;s blog",
+        "name": "suresh babu&#x27;s blog",
         "logo": {
             "@type": "ImageObject",
             "url": "https://suresh2.com/favicon.ico",
@@ -109,11 +109,12 @@ ghost.init({
 });
 </script>
     <meta name="generator" content="Ghost 1.8" />
-    <link rel="alternate" type="application/rss+xml" title="sureshbabu&#x27;s blog" href="https://suresh2.com/rss/" />
+    <link rel="alternate" type="application/rss+xml" title="suresh babu&#x27;s blog" href="https://suresh2.com/rss/" />
     <script type="text/javascript">
+  //variables
   var ga_ua = 'UA-107076197-1';
   var disqus_shortname = 'suresh2';
-  var github_user = 'dotnetdude';
+  var github_user = 'dotnetdude';     
 </script>
     </head>
     <body class="page-template page-about tag-about tag-aboutme nav-closed">
@@ -185,13 +186,25 @@ ghost.init({
 
 
         <footer class="site-footer clearfix">
-            <section class="copyright"><a href="https://suresh2.com">sureshbabu&#x27;s blog</a> &copy; 2017</section>
+            <section class="copyright"><a href="https://suresh2.com">suresh babu&#x27;s blog</a> &copy; 2017</section>
             <section class="poweredby">Proudly published with <a href="https://ghost.org">Ghost</a></section>
         </footer>
 
     </div>
     
-    
+    <script type="text/javascript">
+//open links in new tab
+    $('a').each(function() {
+       var a = new RegExp('/' + window.location.host + '/');
+       if(!a.test(this.href)) {
+           $(this).click(function(event) {
+               event.preventDefault();
+               event.stopPropagation();
+               window.open(this.href, '_blank');
+           });
+       }
+    });
+</script>
     <script type="text/javascript" src="/assets/js/jquery.fitvids.js?v=21647ba45e"></script>
     <script type="text/javascript" src="/assets/js/index.js?v=21647ba45e"></script>
     <script type="text/javascript" src="/assets/js/ghostly.js?v=21647ba45e"></script>

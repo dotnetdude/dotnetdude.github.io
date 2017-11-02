@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <title>sureshbabu's blog</title>
+    <title>suresh babu's blog</title>
     <meta name="description" content="ctrl + C  ctrl + V">
 
     <meta name="HandheldFriendly" content="True">
@@ -42,14 +42,14 @@
     <link rel="canonical" href="https://suresh2.com/">
     <meta name="referrer" content="no-referrer-when-downgrade">
     
-    <meta property="og:site_name" content="sureshbabu's blog">
+    <meta property="og:site_name" content="suresh babu's blog">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="sureshbabu's blog">
+    <meta property="og:title" content="suresh babu's blog">
     <meta property="og:description" content="ctrl + C  ctrl + V">
     <meta property="og:url" content="https://suresh2.com/">
     <meta property="og:image" content="https://suresh2.com/content/images/2017/10/suresh2_com_title-1.jpg">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="sureshbabu's blog">
+    <meta name="twitter:title" content="suresh babu's blog">
     <meta name="twitter:description" content="ctrl + C  ctrl + V">
     <meta name="twitter:url" content="https://suresh2.com/">
     <meta name="twitter:image" content="https://suresh2.com/content/images/2017/10/suresh2_com_title-1.jpg">
@@ -63,7 +63,7 @@
     "@type": "Website",
     "publisher": {
         "@type": "Organization",
-        "name": "sureshbabu&#x27;s blog",
+        "name": "suresh babu&#x27;s blog",
         "logo": {
             "@type": "ImageObject",
             "url": "https://suresh2.com/favicon.ico",
@@ -94,11 +94,12 @@ ghost.init({
 });
 </script>
     <meta name="generator" content="Ghost 1.8">
-    <link rel="alternate" type="application/rss+xml" title="sureshbabu's blog" href="https://suresh2.com/rss/">
+    <link rel="alternate" type="application/rss+xml" title="suresh babu's blog" href="https://suresh2.com/rss/">
     <script type="text/javascript">
+  //variables
   var ga_ua = 'UA-107076197-1';
   var disqus_shortname = 'suresh2';
-  var github_user = 'dotnetdude';
+  var github_user = 'dotnetdude';     
 </script>
     </head>
     <body class="home-template nav-closed">
@@ -148,7 +149,7 @@ ghost.init({
     </nav>
     <div class="vertical">
         <div class="main-header-content inner">
-            <h1 class="page-title">sureshbabu's blog</h1>
+            <h1 class="page-title">suresh babu's blog</h1>
             <h2 class="page-description">ctrl + C  ctrl + V</h2>
         </div>
     </div>
@@ -215,13 +216,25 @@ ghost.init({
 
 
         <footer class="site-footer clearfix">
-            <section class="copyright"><a href="https://suresh2.com">sureshbabu's blog</a> © 2017</section>
+            <section class="copyright"><a href="https://suresh2.com">suresh babu's blog</a> © 2017</section>
             <section class="poweredby">Proudly published with <a href="https://ghost.org">Ghost</a></section>
         </footer>
 
     </div>
     
-    
+    <script type="text/javascript">
+//open links in new tab
+    $('a').each(function() {
+       var a = new RegExp('/' + window.location.host + '/');
+       if(!a.test(this.href)) {
+           $(this).click(function(event) {
+               event.preventDefault();
+               event.stopPropagation();
+               window.open(this.href, '_blank');
+           });
+       }
+    });
+</script>
     <script type="text/javascript" src="assets/js/jquery.fitvids.js?v=21647ba45e"></script>
     <script type="text/javascript" src="assets/js/index.js?v=21647ba45e"></script>
     <script type="text/javascript" src="assets/js/ghostly.js?v=21647ba45e"></script>
